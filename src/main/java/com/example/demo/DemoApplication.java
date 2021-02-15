@@ -13,7 +13,6 @@ public class DemoApplication {
 
         System.out.println(studentService.getAverage(studentService.createStudents(), "Chemistry"));
         System.out.println(taskService.getUpdatedTasks(taskService.createTask()));
-        System.out.println(taskService.convertTaskToTaskDTO(taskService.createTask()));
 
     }
 
