@@ -22,7 +22,6 @@ public class DemoApplication {
         System.out.println(taskService.getUpdatedTasks(tasks));
         System.out.println(taskService.convertTaskToTaskDTO(tasks));
         studentService.getStudentsMarksBySubject(students);
-        System.out.println();
         System.out.println(taskService.getGroupingTasks(tasks));
     }
 

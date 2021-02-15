@@ -22,7 +22,7 @@ public class StudentServiceImpl implements StudentService {
         student1.rate(Subject.MATH, 3);
         student1.rate(Subject.CHEMISTRY, 6);
         Student student2 = new Student("Nick");
-        student2.rate(Subject.CHEMISTRY, 2);
+        student2.rate(Subject.MATH, 2);
 
         return Arrays.asList(student, student1, student2);
     }
