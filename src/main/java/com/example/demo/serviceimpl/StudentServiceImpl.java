@@ -40,10 +40,4 @@ public class StudentServiceImpl implements StudentService {
         return student.getRating().get(subject);
     }
 
-    @Override
-    public void getStudentsMarksBySubject(List<Student> students) {
-        students.stream()
-                .collect(Collectors.groupingBy(Student::getSubjects))
-                .entrySet().forEach(System.out::println);
-    }
 }

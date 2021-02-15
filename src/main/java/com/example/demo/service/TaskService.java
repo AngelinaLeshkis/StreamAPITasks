@@ -17,7 +17,4 @@ public interface TaskService {
 
     List<TaskDTO> convertTaskToTaskDTO(List<Task> tasks);
 
-    void getGroupingTasksByType(List<Task> tasks);
-
-    Map<TaskType, Map<LocalDate, Map<String, Map<Set<String>, List<Task>>>>>  getGroupingTasks(List<Task> tasks);
 }

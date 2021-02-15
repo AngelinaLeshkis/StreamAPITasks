@@ -53,19 +53,4 @@ public class TaskServiceImpl implements TaskService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public void getGroupingTasksByType(List<Task> tasks) {
-        tasks.stream()
-                .collect(groupingBy(Task::getType))
-                .entrySet().forEach(System.out::println);
-    }
-
-    @Override
-    public Map<TaskType, Map<LocalDate, Map<String, Map<Set<String>, List<Task>>>>>  getGroupingTasks(List<Task> tasks) {
-        return tasks.stream()
-                .collect(groupingBy(Task::getType,
-                        groupingBy(Task::getCreatedOn,
-                                groupingBy(Task::getTitle,
-                                        groupingBy(Task::getTags)))));
-    }
 }
