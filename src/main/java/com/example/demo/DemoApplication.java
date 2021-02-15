@@ -23,6 +23,7 @@ public class DemoApplication {
         System.out.println(taskService.convertTaskToTaskDTO(tasks));
         studentService.getStudentsMarksBySubject(students);
         System.out.println(taskService.getGroupingTasks(tasks));
+        System.out.println(studentService.getStudentsMarksBySubject(students));
     }
 
 }

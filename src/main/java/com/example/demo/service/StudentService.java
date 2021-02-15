@@ -12,5 +12,5 @@ public interface StudentService {
 
     Double getAverage(List<Student> students, Subject subject);
 
-    void getStudentsMarksBySubject(List<Student> students);
+    Map<String, String> getStudentsMarksBySubject(List<Student> students);
 }

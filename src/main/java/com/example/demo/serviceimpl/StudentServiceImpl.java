@@ -5,6 +5,7 @@ import com.example.demo.pojo.Subject;
 import com.example.demo.service.StudentService;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -41,9 +42,21 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void getStudentsMarksBySubject(List<Student> students) {
-        students.stream()
-                .collect(Collectors.groupingBy(Student::getSubjects))
-                .entrySet().forEach(System.out::println);
+    public Map<String, String> getStudentsMarksBySubject(List<Student> students) {
+
+        Map<String, String> subjectWithStudentRating = new HashMap<>();
+
+        for (Subject subject : Subject.getSubjectSet()) {
+            String studentWithMark = students.stream()
+                    .filter(student -> student.getRating().containsKey(subject))
+                    .map(student -> student.getName() + " " + student.getRating().get(subject))
+                    .collect(Collectors.joining(", "));
+            subjectWithStudentRating.put(subject.getSubject(), studentWithMark);
+        }
+
+        return subjectWithStudentRating;
+
     }
 }
+
+
