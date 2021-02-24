@@ -3,11 +3,7 @@ package com.example.demo.serviceimpl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
-import static java.util.Map.Entry.comparingByValue;
-import static java.util.function.UnaryOperator.identity;
-import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
 public class TaskStream {
@@ -21,7 +17,7 @@ public class TaskStream {
                 .collect(groupingBy(Character::charValue))
                 .values().stream()
                 .map(List::size)
-                .mapToInt(Integer::intValue)
+                .mapToInt(Integer::valueOf)
                 .max().orElse(0);
 
         Character value = str.chars()
