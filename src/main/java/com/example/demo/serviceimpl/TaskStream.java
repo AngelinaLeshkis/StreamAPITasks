@@ -3,35 +3,38 @@ package com.example.demo.serviceimpl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
+import static java.util.Map.Entry.comparingByValue;
+import static java.util.function.UnaryOperator.identity;
+import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
 
 public class TaskStream {
 
     public Map<Character, Integer> countOfTheMostCommonCharacter(String str) {
+
         Map<Character, Integer> result = new HashMap<>();
 
-        List<Character> chars = str.chars()
-                .mapToObj(e -> (char) e)
-                .collect(toList());
-
-        Integer count = chars.stream()
+        Integer count = str.chars()
+                .mapToObj(symbol -> (char) symbol)
                 .collect(groupingBy(Character::charValue))
                 .values().stream()
                 .map(List::size)
-                .mapToInt(value -> value)
+                .mapToInt(Integer::intValue)
                 .max().orElse(0);
 
-        Character value = chars.stream()
+        Character value = str.chars()
+                .mapToObj(symbol -> (char) symbol)
                 .collect(groupingBy(Character::charValue))
                 .entrySet().stream()
                 .filter(characterListEntry -> count.equals(characterListEntry.getValue().size()))
-                .collect(toList()).get(0).getKey();
+                .findFirst().get().getKey();
 
         result.put(value, count);
 
         return result;
 
     }
+
 }

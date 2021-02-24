@@ -7,6 +7,7 @@ import com.example.demo.service.StudentService;
 import com.example.demo.service.TaskService;
 import com.example.demo.serviceimpl.StudentServiceImpl;
 import com.example.demo.serviceimpl.TaskServiceImpl;
+import com.example.demo.serviceimpl.TaskStream;
 
 import java.util.List;
 
@@ -24,6 +25,12 @@ public class DemoApplication {
         studentService.getStudentsMarksBySubject(students);
         System.out.println(taskService.getGroupingTasks(tasks));
         System.out.println(studentService.getStudentsMarksBySubject(students));
+
+        String a = "aaabbxxxxxtx";
+        String b = "p1p1p1p";
+
+        TaskStream taskStream = new TaskStream();
+        System.out.println(taskStream.countOfTheMostCommonCharacter(b));
     }
 
 }
